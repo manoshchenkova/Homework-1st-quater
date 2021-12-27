@@ -2,10 +2,30 @@
 //Первоначальный массив можно ввести с клавиатуры, либо сгенерировать случайным образом. 
 //При решении не рекомендуется пользоваться коллекциями, лучше обойтись исключительно массивами.
 
-void FillArray(int Array[])
+void FillArray(int[] Array1)
+//  Функция заполняет массив случайными числами
 {
-    for(int i = 0; i < Array.Length; i++)
+    for (int i = 0; i < Array1.Length; i++)
     {
-        Array[i] = new Random().Next(1,10);
+        Array1[i] = new Random().Next(1,10);
     }
 }
+
+void PrintArray(int[] Array2)
+// Функция выводит массив на экран
+{
+    for (int j = 0; j < Array2.Length; j++)
+    {
+        Console.Write(Array2[j] + " ");
+    }
+}
+
+void SelectEvenElements(int[] ArrayInitial, int[]ArrayResult)
+// Функция выбирает четные элементы из изначального массива и копирует их в конечный массив
+{
+    for (int i = 0; i < ArrayInitial.Length; i++)
+    {
+        if(ArrayInitial[i] % 2 == 0)
+    }
+}
+

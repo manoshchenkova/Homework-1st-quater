@@ -7,7 +7,7 @@ void FillArray(int[] Array1)
 {
     for (int i = 0; i < Array1.Length; i++)
     {
-        Array1[i] = new Random().Next(1,10);
+        Array1[i] = new Random().Next(0, 10);
     }
 }
 
@@ -20,27 +20,39 @@ void PrintArray(int[] Array2)
     }
 }
 
-int SelectEvenElements(int[] ArrayInitial, int[] ArrayResult)
+int[] SelectEvenElements(int[] ArrayInitial)
 // Функция выбирает четные элементы из изначального массива и копирует их в конечный массив
 {
     int j = 0;
+    int[] ArrayInterim = new int[ArrayInitial.Length];
 
     for (int i = 0; i < ArrayInitial.Length; i++)
     {
-            if(ArrayInitial[i] % 2 == 0)
-            {
-            ArrayResult[j] = ArrayInitial[i];
+        if (ArrayInitial[i] % 2 == 0)
+        {
+            ArrayInterim[j] = ArrayInitial[i];
             j++;
-            return ArrayResult[j];
-            }
+        }
     }
+
+    int[] ArrayResult = new int[j];
+    
+    for (int k = 0; k < j; k++)
+    {
+        ArrayResult[k] = ArrayInterim[k];
+    }
+
+    return ArrayResult;
 }
+
 Console.Clear();
 
 int[] ArrayInitial = new int[10];
-int[] ArrayResult = new int[ArrayResult.Length];
 
+Console.WriteLine("Original array is: ");
 FillArray(ArrayInitial);
 PrintArray(ArrayInitial);
-SelectEvenElements(ArrayInitial, ArrayResult);
+Console.WriteLine();
+Console.WriteLine("Array with even elements only is: ");
+int[] ArrayResult = SelectEvenElements(ArrayInitial);
 PrintArray(ArrayResult);
